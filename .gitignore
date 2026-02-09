@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PDF Files (User Data)
+*.pdf
+Full_doc/
+Splitted_docs/
+
+# Config (User specific)
+split_config.py
+
+# VS Code
+.vscode/
+
+# OS generated
+.DS_Store
+Thumbs.db

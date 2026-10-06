@@ -11,9 +11,9 @@ A local Python tool designed to split large PDF documents (10,000+ pages) into s
 ## Installation
 
 1. Install [Python](https://www.python.org/downloads/).
-2. Install the required library:
+2. Install the required dependencies:
    ```bash
-   pip install pypdf
+   pip install -r requirements.txt
    ```
 
 ## Usage

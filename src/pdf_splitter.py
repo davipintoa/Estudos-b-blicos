@@ -63,8 +63,8 @@ def split_pdf(input_path: str, ranges: List[Tuple[int, int, str]], output_dir: s
             # 0-based indices: 0, 1, 2
             # range(0, 3) -> 0, 1, 2. Correct.
             
-            for i in range(start_page - 1, end_page):
-                writer.add_page(reader.pages[i])
+            for page_idx in range(start_page - 1, end_page):
+                writer.add_page(reader.pages[page_idx])
 
             with open(output_filename, "wb") as output_file:
                 writer.write(output_file)

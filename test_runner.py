@@ -1,12 +1,13 @@
 
-from pdf_splitter import split_pdf
 import os
+from src.pdf_splitter import split_pdf
+from create_test_pdf import create_dummy_pdf
 
 def run_test():
     input_pdf = "test_document.pdf"
     if not os.path.exists(input_pdf):
-        print(f"Error: {input_pdf} not found. Run create_test_pdf.py first.")
-        return
+        print(f"{input_pdf} not found. Creating dummy test PDF...")
+        create_dummy_pdf(input_pdf, 20)
 
     # Define test ranges (1-based)
     ranges = [
@@ -19,12 +20,21 @@ def run_test():
     split_pdf(input_pdf, ranges)
     
     # Verification
-    expected_files = ["TestSection1.pdf", "TestSection2.pdf", "TestSection3-LargeChunk.pdf"]
+    expected_files = [
+        "01. Test Section 1.pdf",
+        "02. Test Section 2.pdf",
+        "03. Test Section 3 - Large Chunk.pdf"
+    ]
+    all_success = True
     for f in expected_files:
         if os.path.exists(f):
             print(f"SUCCESS: {f} created.")
         else:
-             print(f"FAILURE: {f} NOT created.")
+            print(f"FAILURE: {f} NOT created.")
+            all_success = False
+
+    if all_success:
+        print("\nAll tests passed successfully!")
 
 if __name__ == "__main__":
     run_test()
